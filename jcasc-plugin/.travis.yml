@@ -1,0 +1,21 @@
+language: node_js
+os:
+  - linux
+node_js:
+  - 'node'
+  - '10'
+  - '8'
+install:
+  - npm uninstall typescript --no-save
+  - npm install
+script:
+  - |
+    echo ">>> Compile vscode-test"
+    yarn && yarn compile
+    echo ">>> Compiled vscode-test"
+    cd sample
+    echo ">>> Run sample integration test"
+    yarn && yarn compile && yarn test
+cache:
+  directories:
+    - node_modules
