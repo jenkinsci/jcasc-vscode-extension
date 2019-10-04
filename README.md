@@ -1,5 +1,8 @@
 # jcasc-plugin README
 
+[![Build Status](https://travis-ci.org/sladyn98/JCasC-VSCode-Plugin.svg?branch=master)](https://travis-ci.org/sladyn98/JCasC-VSCode-Plugin)
+
+
 This is the README for your extension "jcasc-plugin". After writing up a brief description, we recommend including the following sections.
 
 ## Features
