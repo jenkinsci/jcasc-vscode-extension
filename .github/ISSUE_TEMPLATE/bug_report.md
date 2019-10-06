@@ -1,38 +1,28 @@
 ---
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
-
+name: "🐛 Bug report"
+labels: bug
+about: Create a bug report to help us improve
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+<!--
+Never report security issues on GitHub or other public channels (Gitter/Twitter/etc.), follow the instruction from [Jenkins Security](https://jenkins.io/security/) to report it on [Jenkins Jira](https://issues.jenkins-ci.org)
+-->
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+### Your checklist for this issue
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+🚨 Please review the [guidelines for contributing](../blob/master/docs/CONTRIBUTING.md) to this repository.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+- [ ] Jenkins version
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+- [ ] Plugin version
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+- [ ] OS
 
-**Additional context**
-Add any other context about the problem here.
+<!--
+Put an `x` into the [ ] to show you have filled the information below
+Describe your issue below
+-->
+
+### Description
+
+Please describe your issue here.
