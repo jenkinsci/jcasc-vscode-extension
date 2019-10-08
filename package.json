@@ -10,7 +10,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.helloWorld",
+		"onLanguage:json"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
