@@ -1,4 +1,4 @@
-# jcasc-plugin README
+# JCasC-VSCode-Plugin 
 
 [![Build Status](https://travis-ci.org/sladyn98/JCasC-VSCode-Plugin.svg?branch=master)](https://travis-ci.org/sladyn98/JCasC-VSCode-Plugin)
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sladyn98/JCasC-VSCode-Plugin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sladyn98/JCasC-VSCode-Plugin/alerts/)
