@@ -11,14 +11,16 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.helloWorld",
-		"onLanguage:json"
+		"onLanguage:yaml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.helloWorld",
-			"title": "Hello World"
-		}]
+		"commands": [
+			{
+				"command": "extension.jcasc",
+				"title": "JCasC"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
