@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld",
+		"onCommand:extension.jcasc",
 		"onLanguage:yaml"
 	],
 	"main": "./out/extension.js",
