@@ -11,7 +11,7 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.jcasc",
-		"onLanguage:yaml"
+		"onLanguage:yml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
@@ -39,5 +39,8 @@
 		"typescript": "^3.3.1",
 		"tslint": "^5.12.1",
 		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"request-promise": "^4.2.4"
 	}
 }

@@ -5,6 +5,8 @@ import { Http2ServerRequest, Http2ServerResponse } from 'http2';
 import { runInThisContext } from 'vm';
 import { getLatestInsidersMetadata } from 'vscode-test/out/util';
 
+const rp = require("request-promise");
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
@@ -23,9 +25,11 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.window.showInformationMessage('Welcome to the jcasc-plugin');
 
 		//Fetches the JSON Schema via a REST API Call
-		const endpoint = 'http://localhost:8080/jenkins/configuration-as-code/schema';
-		let resonse = this.get(endpoint);
-		console.log(JSON.stringify(resonse));
+		rp('http://localhost:8080/jenkins/configuration-as-code/schema').then((result:any) => {
+			console.log("Result: " + result);
+		}).catch((err:any) => {
+			console.log("ERROR: " + err);
+		});
 	});
 
 	context.subscriptions.push(disposable);
