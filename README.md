@@ -6,7 +6,7 @@
 
 This plugin deals with the authentication and fetching of the JSON schema from a live Jenkins instance.
 
-# How to Run Locally.
+## How to Run Locally
 
 1) Clone the repository.
 
