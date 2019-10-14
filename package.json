@@ -15,6 +15,15 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"configuration":{
+			"title": "JCasC",
+			"properties": {
+				"jcasc.schemaURL": {
+					"type":"string",
+					"description": "URL for the JSON Schema for the Jenkins instance"
+				}
+			}
+		},
 		"commands": [
 			{
 				"command": "extension.jcasc",

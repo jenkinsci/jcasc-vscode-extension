@@ -25,9 +25,9 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Welcome to the jcasc-plugin');
-
+		const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL');
 		//Fetches the JSON Schema via a REST API Call
-		rp('http://localhost:8080/jenkins/configuration-as-code/schema').then((result:any) => {
+		rp(schemaURL).then((result:any) => {
 			console.log("Result: " + result);
 			var fileContent = result;
 			fs.writeFile("jsonSchema.json", fileContent, (err:any) => {
