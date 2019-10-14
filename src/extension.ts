@@ -5,7 +5,9 @@ import { Http2ServerRequest, Http2ServerResponse } from 'http2';
 import { runInThisContext } from 'vm';
 import { getLatestInsidersMetadata } from 'vscode-test/out/util';
 
+
 const rp = require("request-promise");
+var fs = require("fs");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -27,6 +29,15 @@ export function activate(context: vscode.ExtensionContext) {
 		//Fetches the JSON Schema via a REST API Call
 		rp('http://localhost:8080/jenkins/configuration-as-code/schema').then((result:any) => {
 			console.log("Result: " + result);
+			var fileContent = result;
+			fs.writeFile("jsonSchema.json", fileContent, (err:any) => {
+				if (err) {
+					console.error(err);
+					return;
+				}
+				console.log("File has been created");
+			});
+
 		}).catch((err:any) => {
 			console.log("ERROR: " + err);
 		});
