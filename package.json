@@ -10,7 +10,7 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.jcasc",
+		"onCommand:extension.jcasc"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
