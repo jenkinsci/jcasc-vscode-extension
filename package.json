@@ -11,23 +11,22 @@
 	],
 	"activationEvents": [
 		"onCommand:extension.jcasc",
-		"onLanguage:yml"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"configuration":{
-			"title": "JCasC",
+			"title": "Jenkins: Configuration as Code",
 			"properties": {
 				"jcasc.schemaURL": {
 					"type":"string",
-					"description": "URL for the JSON Schema for the Jenkins instance"
+					"description": "URL for the configuration-as-code Schema for the Jenkins instance"
 				}
 			}
 		},
 		"commands": [
 			{
 				"command": "extension.jcasc",
-				"title": "JCasC"
+				"title": "Jenkins: Fetch configuration-as-code schema"
 			}
 		]
 	},

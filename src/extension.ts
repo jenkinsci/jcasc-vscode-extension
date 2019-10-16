@@ -1,10 +1,6 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import { Http2ServerRequest, Http2ServerResponse } from 'http2';
-import { runInThisContext } from 'vm';
-import { getLatestInsidersMetadata } from 'vscode-test/out/util';
-
 
 const rp = require("request-promise");
 var fs = require("fs");
@@ -30,7 +26,7 @@ export function activate(context: vscode.ExtensionContext) {
 		rp(schemaURL).then((result:any) => {
 			console.log("Result: " + result);
 			var fileContent = result;
-			fs.writeFile("jsonSchema.json", fileContent, (err:any) => {
+			fs.writeFile("jcasc-schema.json", fileContent, (err:any) => {
 				if (err) {
 					console.error(err);
 					return;
