@@ -10,14 +10,25 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.jcasc"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [{
-			"command": "extension.helloWorld",
-			"title": "Hello World"
-		}]
+		"configuration":{
+			"title": "Jenkins: Configuration as Code",
+			"properties": {
+				"jcasc.schemaURL": {
+					"type":"string",
+					"description": "URL for the configuration-as-code Schema for the Jenkins instance"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "extension.jcasc",
+				"title": "Jenkins: Fetch configuration-as-code schema"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
@@ -36,5 +47,8 @@
 		"typescript": "^3.3.1",
 		"tslint": "^5.12.1",
 		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"request-promise": "^4.2.4"
 	}
 }
