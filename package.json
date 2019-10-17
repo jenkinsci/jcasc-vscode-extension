@@ -20,7 +20,10 @@
 				"jcasc.schemaURL": {
 					"type":"string",
 					"description": "URL for the configuration-as-code Schema for the Jenkins instance"
-				}
+				},
+				"jcasc.userToken": {
+					"type":"string",
+					"description": "Token for authenticating the user"
 			}
 		},
 		"commands": [
