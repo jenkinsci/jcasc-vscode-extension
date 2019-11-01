@@ -22,8 +22,12 @@ export function activate(context: vscode.ExtensionContext) {
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Welcome to the jcasc-plugin');
 		const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL');
-		//Fetches the JSON Schema via a REST API Call
-		rp(schemaURL).then((result:any) => {
+		const userName = vscode.workspace.getConfiguration().get('jcasc.userName');
+		const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken');
+		const url = `http://${userName}:${userToken}@${schemaURL}`;
+		
+		// Fetches the JSON Schema via a REST API Call
+		rp(url).then((result:any) => {
 			console.log("Result: " + result);
 			var fileContent = result;
 			fs.writeFile("jcasc-schema.json", fileContent, (err:any) => {
@@ -37,6 +41,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}).catch((err:any) => {
 			console.log("ERROR: " + err);
 		});
+
 	});
 
 	context.subscriptions.push(disposable);

@@ -14,12 +14,20 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"configuration":{
+		"configuration": {
 			"title": "Jenkins: Configuration as Code",
 			"properties": {
 				"jcasc.schemaURL": {
-					"type":"string",
+					"type": "string",
 					"description": "URL for the configuration-as-code Schema for the Jenkins instance"
+				},
+				"jcasc.userName": {
+					"type": "string",
+					"description": "Username for authenticating the user"
+				},
+				"jcasc.userToken": {
+					"type": "string",
+					"description": "Token for authenticating the user"
 				}
 			}
 		},
