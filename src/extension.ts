@@ -4,7 +4,6 @@ import * as vscode from 'vscode';
 
 const rp = require("request-promise");
 var fs = require("fs");
-const request = require("request");
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
@@ -25,8 +24,8 @@ export function activate(context: vscode.ExtensionContext) {
 		const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL');
 		const userName = vscode.workspace.getConfiguration().get('jcasc.userName');
 		const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken');
-		const url = "http://" + userName + ":" + userToken + "@" + schemaURL;
-
+		const url = `http://${userName}:${userToken}@${schemaURL}`;
+		
 		// Fetches the JSON Schema via a REST API Call
 		rp(url).then((result:any) => {
 			console.log("Result: " + result);
