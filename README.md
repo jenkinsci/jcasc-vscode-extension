@@ -5,6 +5,7 @@
 
 
 This plugin deals with the authentication and fetching of the JSON schema from a live Jenkins instance.
+It provides the base for validation of yaml files written to configure a Jenkins instance.
 
 ## How to Run Locally
 
