@@ -17,7 +17,6 @@
   "activationEvents": [
     "onCommand:extension.jcasc"
   ],
-  "repository": "https://github.com/jenkinsci/jcasc-vscode-extension",
   "license": "MIT",
   "main": "./out/extension.js",
   "contributes": {
