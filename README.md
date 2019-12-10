@@ -16,7 +16,7 @@ It provides the base for validation of yaml files written to configure a Jenkins
     a) URL field for the Jenkins instance that you want to to extract the YAML Schema from.
 
     b) User Token Field for if the Jenkins instance is protected.
-3) Once this is set you can use `Ctrl + Shift + P` to activate the extension.
+3) Once this is set you can use `Ctrl + Shift + P` to bring up the dialog box and then select the JCasC extension from the list of extensions, this will activate the extension.
 4) This will download the schema with the filename `jcasc-schema.json` to the current working directory.
 5) This schema file can then be used to autosuggest and validate the yaml file written for JCasC.
 
