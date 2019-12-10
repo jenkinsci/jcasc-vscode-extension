@@ -25,7 +25,7 @@ It provides the base for validation of yaml files written to configure a Jenkins
 In order to enable validation we need to include it in the workspace settings. In order to do that
 navigate to `File` and then `Preference` and then `Settings`. Inside settings search for `json` and inside `settings.json` include the following configuration.
 
-```
+```yaml
 {
 "yaml.schemas": {
         "schema.json": "y[a]?ml"
@@ -45,7 +45,7 @@ The following tasks can be done using VSCode:
 
  Create a new file under the work directory called `jenkins.yml`. For example consider the following contents for the file:
 
-```
+```yaml
 jenkins:
   systemMessage: “Hello World”
   numExecutors:2
