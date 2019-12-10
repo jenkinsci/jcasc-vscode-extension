@@ -60,3 +60,21 @@ i) The above yaml file is valid according to the schema and vscode should provid
 2) Run `npm install` in the working directory.
 
 3) Hit `F5` to run the plugin in the development Host.
+
+
+## Settings 
+
+One can edit the settings in this window.
+
+<p align="center">
+  <img src="images/settings.png" alt="Settings screenshot 1" width="738">
+</p>
+
+## Extension Activation
+
+This is the window to activate the extension.
+
+<p align="center">
+  <img src="images/extensionWindow.png" alt="Activation Window screenshot 1" width="738">
+</p>
+
