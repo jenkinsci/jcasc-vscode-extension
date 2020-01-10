@@ -53,6 +53,13 @@ jenkins:
 
 i) The above yaml file is valid according to the schema and vscode should provide you with validation and autocompletion for the same.
 
+## Feature Overview
+
+1) JSON Schema Import
+2) Seamless connection to Jenkins instance
+3) Syntax Highlighting while writing yml
+4) Auto Suggestions  
+
 ## How to Run Locally
 
 1) Clone the repository.
@@ -60,7 +67,6 @@ i) The above yaml file is valid according to the schema and vscode should provid
 2) Run `npm install` in the working directory.
 
 3) Hit `F5` to run the plugin in the development Host.
-
 
 ## Settings 
 
