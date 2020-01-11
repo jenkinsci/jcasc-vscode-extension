@@ -22,10 +22,15 @@ export function activate(context: vscode.ExtensionContext) {
 
 		// Display a message box to the user
 		vscode.window.showInformationMessage('Welcome to the jcasc-plugin');
-		const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL');
-		const userName = vscode.workspace.getConfiguration().get('jcasc.userName');
-		const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken');
+		var schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL');
+		var userName = vscode.workspace.getConfiguration().get('jcasc.userName');
+		var userToken = vscode.workspace.getConfiguration().get('jcasc.userToken');
 		const url = `http://${userName}:${userToken}@${schemaURL}`;
+
+
+		if(!schemaURL ) {
+			schemaURL = vscode.window.showInputBox({ prompt: 'Kindly provide a schema URL' });
+		}
 		
 		// Fetches the JSON Schema via a REST API Call
 		rp(url).then((result:any) => {
@@ -39,7 +44,7 @@ export function activate(context: vscode.ExtensionContext) {
 				console.log("File has been created");
 			});
 
-		}).catch((err) => {
+		}).catch((err:any) => {
 			console.log("ERROR: " + err);
 			if(err === ECONNREFUSED) {
 				vscode.window.showErrorMessage('Incorrect URL Or token');
