@@ -61,6 +61,9 @@ export function activate(context: vscode.ExtensionContext) {
 			if(err === ECONNREFUSED) {
 				vscode.window.showErrorMessage('Kindly check the URL you have provided and ensure firewall has been disabled');
 			}
+			if(err.status === 401) {
+				vscode.window.showErrorMessage('Kindly provide a valid token');
+			}
 		});
 
 	});
