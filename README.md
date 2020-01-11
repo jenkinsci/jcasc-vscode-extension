@@ -4,21 +4,21 @@
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sladyn98/JCasC-VSCode-Plugin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sladyn98/JCasC-VSCode-Plugin/alerts/)
 [![Build Status](https://dev.azure.com/jcasc-vscode-extension/jcasc-vscode-extension/_apis/build/status/jenkinsci.jcasc-vscode-extension?branchName=master)](https://dev.azure.com/jcasc-vscode-extension/jcasc-vscode-extension/_build/latest?definitionId=1&branchName=master)
 
-## What does the plugin do ? 
+## What does the plugin do 
 This plugin deals with the authentication and fetching of the JSON schema from a live Jenkins instance.
 It provides the base for validation of yaml files written to configure a Jenkins instance.
 
 ## How to use
 
-1) Download and install the plugin from the VSCode Marketplace.
-2) Inside the Settings tab of VSCode find JCasc which will display two input blocks:
+- Download and install the plugin from the VSCode Marketplace.
+- Inside the Settings tab of VSCode find JCasc which will display two input blocks:
 
-    a) URL field for the Jenkins instance that you want to to extract the YAML Schema from.
+    - URL field for the Jenkins instance that you want to to extract the YAML Schema from.
 
-    b) User Token Field for if the Jenkins instance is protected.
-3) Once this is set you can use `Ctrl + Shift + P` to bring up the dialog box and then select the JCasC extension from the list of extensions, this will activate the extension.
-4) This will download the schema with the filename `jcasc-schema.json` to the current working directory.
-5) This schema file can then be used to autosuggest and validate the yaml file written for JCasC.
+    - User Token Field for if the Jenkins instance is protected.
+- Once this is set you can use `Ctrl + Shift + P` to bring up the dialog box and then select the JCasC extension from the list of extensions, this will activate the extension.
+- This will download the schema with the filename `jcasc-schema.json` to the current working directory.
+- This schema file can then be used to autosuggest and validate the yaml file written for JCasC.
 
 ## User Guide
 
@@ -51,14 +51,14 @@ jenkins:
   numExecutors:2
 ```
 
-i) The above yaml file is valid according to the schema and vscode should provide you with validation and autocompletion for the same.
+ The above yaml file is valid according to the schema and vscode should provide you with validation and autocompletion for the same.
 
 ## Feature Overview
 
-1) JSON Schema Import
-2) Seamless connection to Jenkins instance
-3) Syntax Highlighting while writing yml
-4) Auto Suggestions  
+- JSON Schema Import
+- Seamless connection to Jenkins instance
+- Syntax Highlighting while writing yml
+- Auto Suggestions  
 
 ## How to Run Locally
 
