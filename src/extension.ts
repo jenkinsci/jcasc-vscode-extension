@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
 				password: userToken
 			}
 		};
-		
+
 		// Fetches the JSON Schema via a REST API Call
 		rp(schemaURL, options).then((result:any) => {
 			console.log("Result: " + result);
@@ -59,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
 		}).catch((err:any) => {
 			console.log("ERROR: " + err);
 			if(err === ECONNREFUSED) {
-				vscode.window.showErrorMessage('Incorrect URL Or token');
+				vscode.window.showErrorMessage('Kindly check the URL you have provided and ensure firewall has been disabled');
 			}
 		});
 
