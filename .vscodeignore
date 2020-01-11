@@ -11,3 +11,5 @@ vsc-extension-quickstart.md
 azure-pipelines.yml
 Jenkinsfile
 .github/**
+images/**
+!images/jcasc_icon.png
