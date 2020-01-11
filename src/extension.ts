@@ -37,10 +37,15 @@ export function activate(context: vscode.ExtensionContext) {
 		}
 
 		// Constructs the url from the provided credentials.
-		const url = `http://${userName}:${userToken}@${schemaURL}`;
-
+		const options = {
+			auth: {
+				userName,
+				password: userToken
+			}
+		};
+		
 		// Fetches the JSON Schema via a REST API Call
-		rp(url).then((result:any) => {
+		rp(schemaURL, options).then((result:any) => {
 			console.log("Result: " + result);
 			var fileContent = result;
 			fs.writeFile("jcasc-schema.json", fileContent, (err:any) => {
