@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { ECONNREFUSED } from 'constants';
 
 const rp = require("request-promise");
 var fs = require("fs");
@@ -38,8 +39,11 @@ export function activate(context: vscode.ExtensionContext) {
 				console.log("File has been created");
 			});
 
-		}).catch((err:any) => {
+		}).catch((err) => {
 			console.log("ERROR: " + err);
+			if(err === ECONNREFUSED) {
+				vscode.window.showErrorMessage('Incorrect URL Or token');
+			}
 		});
 
 	});
