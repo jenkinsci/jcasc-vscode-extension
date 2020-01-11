@@ -25,11 +25,11 @@ It provides the base for validation of yaml files written to configure a Jenkins
 In order to enable validation we need to include it in the workspace settings. In order to do that
 navigate to `File` and then `Preference` and then `Settings`. Inside settings search for `json` and inside `settings.json` include the following configuration.
 
-```yaml
+```json
 {
-"yaml.schemas": {
-        "schema.json": "y[a]?ml"
-    }
+  "yaml.schemas": {
+    "jcasc-schema.json": "y[a]?ml"
+  }
 }
 ```
 
@@ -48,7 +48,7 @@ The following tasks can be done using VSCode:
 ```yaml
 jenkins:
   systemMessage: “Hello World”
-  numExecutors:2
+  numExecutors: 2
 ```
 
  The above yaml file is valid according to the schema and vscode should provide you with validation and autocompletion for the same.
