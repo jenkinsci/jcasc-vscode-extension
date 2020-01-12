@@ -6,7 +6,7 @@
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/jenkinsci/jcasc-vscode-extension"
-	  },
+	},
 	"icon": "images/jcasc_icon.png",
 	"engines": {
 		"vscode": "^1.38.0"
@@ -57,8 +57,11 @@
 		"@types/node": "^10.12.21",
 		"@types/vscode": "^1.38.0",
 		"glob": "^7.1.4",
+		"husky": "^4.0.7",
+		"lint-staged": "^9.5.0",
 		"mocha": "^6.1.4",
 		"typescript": "^3.3.1",
+		"prettier": "^1.19.1",
 		"tslint": "^5.12.1",
 		"vscode-test": "^1.2.0"
 	},

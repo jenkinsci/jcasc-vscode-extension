@@ -1,0 +1,7 @@
+'*.{js, ts}':
+  - 'prettier --write --ignore-path .gitignore'
+  - 'tslint --fix'
+  - 'git add'
+'*.{json, md, yml}':
+  - 'prettier --write --ignore-path .gitignore'
+  - 'git add'
