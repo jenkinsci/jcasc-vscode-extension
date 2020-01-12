@@ -15,3 +15,5 @@ images/**
 .lintstagedrc.yml
 .prettierrc.yml
 .editorconfig
+webpack.config.js
+node_modules/**
