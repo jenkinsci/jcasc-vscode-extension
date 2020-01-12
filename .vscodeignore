@@ -3,13 +3,11 @@
 out/test/**
 src/**
 .gitignore
-vsc-extension-quickstart.md
 **/tsconfig.json
 **/tslint.json
 **/*.map
 **/*.ts
 azure-pipelines.yml
-Jenkinsfile
 .github/**
 images/**
 !images/jcasc_icon.png
