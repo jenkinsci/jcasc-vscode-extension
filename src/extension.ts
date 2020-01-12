@@ -26,9 +26,9 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Display a message box to the user
     vscode.window.showInformationMessage('Welcome to the jcasc-plugin')
-    const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL')
-    const userName = vscode.workspace.getConfiguration().get('jcasc.userName')
-    const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken')
+    const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL', '')
+    const userName = vscode.workspace.getConfiguration().get('jcasc.userName', '')
+    const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken', '')
 
     // Fetches the JSON Schema via a REST API Call
     const auth = Buffer.from(`${userName}:${userToken}`).toString('base64')
