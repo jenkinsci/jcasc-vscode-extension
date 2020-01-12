@@ -4,13 +4,6 @@ about: Suggest an idea for this project
 title: ''
 labels: 'feature'
 assignees: ''
-
----
-
----
-name: "🚀 Feature request"
-labels: feature
-about: I have a suggestion
 ---
 
 ### Your checklist for this issue

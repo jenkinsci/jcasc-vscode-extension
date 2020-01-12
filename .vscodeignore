@@ -11,3 +11,7 @@ azure-pipelines.yml
 .github/**
 images/**
 !images/jcasc_icon.png
+.huskyrc.yml
+.lintstagedrc.yml
+.prettierrc.yml
+.editorconfig
