@@ -6,9 +6,9 @@ strategy:
     linux:
       imageName: 'ubuntu-18.04'
     mac:
-      imageName: 'macos-10.13'
+      imageName: 'macOS-10.14'
     windows:
-      imageName: 'vs2017-win2016'
+      imageName: 'windows-2019'
 
 pool:
   vmImage: $(imageName)
@@ -17,7 +17,7 @@ steps:
 
 - task: NodeTool@0
   inputs:
-    versionSpec: '8.x'
+    versionSpec: '12.x'
   displayName: 'Install Node.js'
 
 - bash: |
