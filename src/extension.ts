@@ -1,74 +1,72 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
-import { ECONNREFUSED } from 'constants';
-
-const rp = require("request-promise");
-var fs = require("fs");
+import * as vscode from 'vscode'
+import { ECONNREFUSED } from 'constants'
+import fetch, { RequestInit } from 'node-fetch'
+import { promisify } from 'util'
+import { pipeline } from 'stream'
+import { createWriteStream } from 'fs'
+import { join } from 'path'
 
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
+  // Use the console to output diagnostic information (console.log) and errors (console.error)
+  // This line of code will only be executed once when your extension is activated
+  console.log('Congratulations, your extension "jcasc-plugin" is now active!')
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "jcasc-plugin" is now active!');
+  // The command has been defined in the package.json file
+  // Now provide the implementation of the command with registerCommand
+  // The commandId parameter must match the command field in package.json
+  let disposable = vscode.commands.registerCommand('extension.jcasc', async () => {
+    const folder = vscode.workspace.workspaceFolders?.[0]?.uri.fsPath
+    if (!folder) return
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.jcasc', () => {
-		// The code you place here will be executed every time your command is executed
+    const streamPipeline = promisify(pipeline)
+    // The code you place here will be executed every time your command is executed
 
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Welcome to the jcasc-plugin');
-		const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL');
-		const userName = vscode.workspace.getConfiguration().get('jcasc.userName');
-		const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken');
-		
-		if(!schemaURL) {
-			vscode.window.showWarningMessage('Kindly provide a schemaURL');
-		}
-		if(!userName) {
-			vscode.window.showWarningMessage('Kindly provide a userName');
-		}
-		if(!userToken) {
-			vscode.window.showWarningMessage('Kindly provide a userToken');
-		}
+    // Display a message box to the user
+    vscode.window.showInformationMessage('Welcome to the jcasc-plugin')
+    const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL', '')
+    const userName = vscode.workspace.getConfiguration().get('jcasc.userName', '')
+    const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken', '')
 
-		// Constructs the url from the provided credentials.
-		const options = {
-			auth: {
-				userName,
-				password: userToken
-			}
-		};
+    if (!schemaURL) {
+      vscode.window.showWarningMessage('Kindly provide a schemaURL')
+    }
+    if (!userName) {
+      vscode.window.showWarningMessage('Kindly provide a userName')
+    }
+    if (!userToken) {
+      vscode.window.showWarningMessage('Kindly provide a userToken')
+    }
 
-		// Fetches the JSON Schema via a REST API Call
-		rp(schemaURL, options).then((result:any) => {
-			console.log("Result: " + result);
-			var fileContent = result;
-			fs.writeFile("jcasc-schema.json", fileContent, (err:any) => {
-				if (err) {
-					console.error(err);
-					return;
-				}
-				console.log("File has been created");
-			});
+    // Fetches the JSON Schema via a REST API Call
+    const auth = Buffer.from(`${userName}:${userToken}`).toString('base64')
+    const options: RequestInit = {
+      headers: {
+        Authorization: `Basic ${auth}`,
+      },
+    }
+    await fetch(schemaURL, options)
+      .then(res => {
+        if (!res.ok) throw new Error(`unexpected response ${res.statusText}`)
+        return streamPipeline(res.body, createWriteStream(join(folder, 'jcasc-schema.json')))
+      })
+      .catch((err: any) => {
+        console.log('ERROR: ' + err)
+        if (err === ECONNREFUSED) {
+          vscode.window.showErrorMessage(
+            'Kindly check the URL you have provided and ensure firewall has been disabled'
+          )
+        }
+        if (err.status === 401) {
+          vscode.window.showErrorMessage('Kindly provide a valid token')
+        }
+      })
+  })
 
-		}).catch((err:any) => {
-			console.log("ERROR: " + err);
-			if(err === ECONNREFUSED) {
-				vscode.window.showErrorMessage('Kindly check the URL you have provided and ensure firewall has been disabled');
-			}
-			if(err.status === 401) {
-				vscode.window.showErrorMessage('Kindly provide a valid token');
-			}
-		});
-
-	});
-
-	context.subscriptions.push(disposable);
+  context.subscriptions.push(disposable)
 }
 
 // this method is called when your extension is deactivated
