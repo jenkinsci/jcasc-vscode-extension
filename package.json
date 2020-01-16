@@ -45,13 +45,13 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "npm run clean-out && npm run compile",
+    "vscode:prepublish": "yarn clean-out && yarn compile",
     "clean-out": "rimraf ./out",
     "compile": "webpack --mode production",
     "watch": "webpack --mode development --watch --info-verbosity verbose",
-    "test-watch": "npm run test-compile -- -watch",
+    "test-watch": "yarn test-compile -- -watch",
     "test-compile": "tsc -p ./",
-    "pretest": "npm run test-compile",
+    "pretest": "yarn test-compile",
     "test": "node ./out/test/runTest.js",
     "deploy": "vsce publish --yarn"
   },
