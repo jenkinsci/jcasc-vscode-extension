@@ -17,3 +17,5 @@ images/**
 .editorconfig
 webpack.config.js
 node_modules/**
+yarn.lock
+yarn-error.log
