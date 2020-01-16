@@ -1,5 +1,8 @@
 trigger:
-  - master
+  branches:
+    include: ['*']
+  tags:
+    include: ['*']
 
 strategy:
   matrix:
@@ -32,3 +35,7 @@ steps:
     displayName: Run Tests
     env:
       DISPLAY: ':99.0'
+  - bash: |
+      yarn deploy -p $(VSCODE_MARKETPLACE_TOKEN)
+    displayName: Publish
+    condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['Agent.OS'], 'Linux'))
