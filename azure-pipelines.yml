@@ -29,9 +29,9 @@ steps:
     condition: and(succeeded(), eq(variables['Agent.OS'], 'Linux'))
 
   - bash: |
-      npm install
-      npm run compile
-      npm test
+      yarn install
+      yarn compile
+      yarn test
     displayName: Run Tests
     env:
       DISPLAY: ':99.0'
