@@ -52,7 +52,8 @@
     "test-watch": "npm run test-compile -- -watch",
     "test-compile": "tsc -p ./",
     "pretest": "npm run test-compile",
-    "test": "node ./out/test/runTest.js"
+    "test": "node ./out/test/runTest.js",
+    "deploy": "vsce publish --yarn"
   },
   "devDependencies": {
     "@types/glob": "^7.1.1",
