@@ -2,7 +2,7 @@
   "name": "jcasc-plugin",
   "displayName": "JCasC-Plugin",
   "description": "This extension is used to integrate a live jenkins instance configuration with your editor. It can be used to edit and validate YAML files.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": {
     "type": "git",
     "url": "https://github.com/jenkinsci/jcasc-vscode-extension"
