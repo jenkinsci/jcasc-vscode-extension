@@ -1,4 +1,4 @@
-# JCasC-VSCode-Plugin
+# Jenkins - Configuration as Code VSCode extension
 
 [![Total alerts](https://img.shields.io/lgtm/alerts/g/sladyn98/JCasC-VSCode-Plugin.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/sladyn98/JCasC-VSCode-Plugin/alerts/)
 [![Build Status](https://dev.azure.com/jcasc-vscode-extension/jcasc-vscode-extension/_apis/build/status/jenkinsci.jcasc-vscode-extension?branchName=master)](https://dev.azure.com/jcasc-vscode-extension/jcasc-vscode-extension/_build/latest?definitionId=1&branchName=master)
