@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
     // The code you place here will be executed every time your command is executed
 
     // Display a message box to the user
-    const schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL', '')
+    var schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL', '')
     const userName = vscode.workspace.getConfiguration().get('jcasc.userName', '')
     const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken', '')
     const messages = []
@@ -51,6 +51,8 @@ export function activate(context: vscode.ExtensionContext) {
           Authorization: `Basic ${auth}`,
         },
       }
+      schemaURL = schemaURL + "/configuration-as-code/schema"
+      console.log(schemaURL)
       await fetch(schemaURL, options)
         .then(res => {
           if (!res.ok) {
