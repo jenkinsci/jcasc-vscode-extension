@@ -52,7 +52,6 @@ export function activate(context: vscode.ExtensionContext) {
         },
       }
       schemaURL = schemaURL + "/configuration-as-code/schema"
-      console.log(schemaURL)
       await fetch(schemaURL, options)
         .then(res => {
           if (!res.ok) {
