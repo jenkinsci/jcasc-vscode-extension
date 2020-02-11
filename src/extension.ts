@@ -28,13 +28,13 @@ export function activate(context: vscode.ExtensionContext) {
     // The code you place here will be executed every time your command is executed
 
     // Display a message box to the user
-    var schemaURL = vscode.workspace.getConfiguration().get('jcasc.schemaURL', '')
+    const jenkinsURL = vscode.workspace.getConfiguration().get('jcasc.jenkinsURL', '')
     const userName = vscode.workspace.getConfiguration().get('jcasc.userName', '')
     const userToken = vscode.workspace.getConfiguration().get('jcasc.userToken', '')
     const messages = []
 
-    if (!schemaURL) {
-      messages.push('Kindly provide a schemaURL')
+    if (!jenkinsURL) {
+      messages.push('Kindly provide a jenkinsURL')
     }
     if (!userName) {
       messages.push('Kindly provide a userName')
@@ -43,7 +43,7 @@ export function activate(context: vscode.ExtensionContext) {
       messages.push('Kindly provide a userToken')
     }
 
-    if (schemaURL && userName && userToken) {
+    if (jenkinsURL && userName && userToken) {
       // Fetches the JSON Schema via a REST API Call
       const auth = Buffer.from(`${userName}:${userToken}`).toString('base64')
       const options: RequestInit = {
@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
           Authorization: `Basic ${auth}`,
         },
       }
-      schemaURL = schemaURL + "/configuration-as-code/schema"
+      const schemaURL = jenkinsURL + "configuration-as-code/schema"
       await fetch(schemaURL, options)
         .then(res => {
           if (!res.ok) {

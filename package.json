@@ -23,7 +23,7 @@
     "configuration": {
       "title": "Jenkins: Configuration as Code",
       "properties": {
-        "jcasc.schemaURL": {
+        "jcasc.jenkinsURL": {
           "type": "string",
           "description": "URL for the configuration-as-code Schema for the Jenkins instance"
         },

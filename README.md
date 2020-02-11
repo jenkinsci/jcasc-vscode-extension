@@ -14,6 +14,7 @@ It provides the base for validation of yaml files written to configure a Jenkins
 - Inside the Settings tab of VSCode find JCasc which will display two input blocks:
 
   - URL field for the Jenkins instance that you want to to extract the YAML Schema from.
+    eg : `localhost:8080/jenkins`
 
   - User Token Field for if the Jenkins instance is protected.
 
