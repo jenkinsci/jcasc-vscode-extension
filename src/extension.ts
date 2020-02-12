@@ -51,7 +51,7 @@ export function activate(context: vscode.ExtensionContext) {
           Authorization: `Basic ${auth}`,
         },
       }
-      const schemaURL = jenkinsURL + "configuration-as-code/schema"
+      const schemaURL = jenkinsURL + addTrailingSlash("configuration-as-code/schema")
       await fetch(schemaURL, options)
         .then(res => {
           if (!res.ok) {
@@ -89,6 +89,10 @@ export function activate(context: vscode.ExtensionContext) {
   })
 
   context.subscriptions.push(disposable)
+}
+
+function addTrailingSlash(URL:string) {
+    return URL + '/'
 }
 
 // this method is called when your extension is deactivated
