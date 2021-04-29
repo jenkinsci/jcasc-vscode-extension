@@ -76,7 +76,7 @@
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.1"
   },
   "extensionDependencies": [
     "redhat.vscode-yaml"
