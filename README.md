@@ -11,10 +11,12 @@ It provides the base for validation of yaml files written to configure a Jenkins
 ## How to use
 
 - Download and install the plugin from the VSCode Marketplace.
-- Inside the Settings tab of VSCode find JCasc which will display two input blocks:
+- Inside the Settings tab of VSCode find JCasc which will display three input blocks:
 
   - URL field for the Jenkins instance that you want to to extract the YAML Schema from.
     eg : `localhost:8080/jenkins`
+
+  - User Name Field for if the Jenkins instance is protected.
 
   - User Token Field for if the Jenkins instance is protected.
 

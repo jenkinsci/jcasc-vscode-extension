@@ -14,6 +14,8 @@ export function activate(context: vscode.ExtensionContext) {
   // Use the console to output diagnostic information (console.log) and errors (console.error)
   // This line of code will only be executed once when your extension is activated
   const outputChannel = vscode.window.createOutputChannel('JCasC')
+  outputChannel.appendLine('Welcome to the JCasC Plugin')
+  outputChannel.show(true)
 
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
@@ -51,8 +53,8 @@ export function activate(context: vscode.ExtensionContext) {
           Authorization: `Basic ${auth}`,
         },
       }
-      const schemaURL = addTrailingSlash(jenkinsURL) + "configuration-as-code/schema"
-      await fetch(schemaURL, options)
+
+      await fetch(jenkinsURL, options)
         .then(res => {
           if (!res.ok) {
             throw new HTTPError(res)
@@ -65,10 +67,10 @@ export function activate(context: vscode.ExtensionContext) {
               messages.push('Provide a valid password/token')
             }
             if (err.status === 404) {
-              messages.push(`No schema found at ${schemaURL}`)
+              messages.push(`No schema found at ${jenkinsURL}`)
             }
           } else if (err instanceof FetchError) {
-            messages.push(`Failed to connect to ${schemaURL}`)
+            messages.push(`Failed to connect to ${jenkinsURL}`)
             if (err.code === 'ECONNREFUSED') {
               messages.push(
                 `Connection refused.\n  1) Check the URL\n  2) Ensure firewall is configured correctly.`
@@ -89,13 +91,6 @@ export function activate(context: vscode.ExtensionContext) {
   })
 
   context.subscriptions.push(disposable)
-}
-
-function addTrailingSlash(URL:string) {
-  if(URL.substr(-1) !== '/') {
-    return URL + '/'
-  }
-  return URL
 }
 
 // this method is called when your extension is deactivated
